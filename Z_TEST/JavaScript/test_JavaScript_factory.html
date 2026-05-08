@@ -1,0 +1,63 @@
+<html>
+
+<head></head>
+
+<body>
+
+  <script src="../../JavaScript/factory.js"></script>
+
+  <script>
+    setTimeout(o => {
+      document.write('<p>Total Index: 0 - 9 ; Stop on 3s ; Re-run on 6s ; stop on index 7 ; use factory.run() and get error on index 8</p>')
+    }, 16);
+    let factory = new Factory();
+
+    for (let i = 0; i < 10; i++) {
+      let task = null;
+      if (i === 7) {
+        task = new Factory.Task(complete => {
+          setTimeout(o => {
+            document.write(`<p>${i}</p>`)
+            complete(false)
+          }, 1000)
+        })
+      } else if (i === 8) {
+        task = new Factory.Task((complete, error) => {
+          setTimeout(o => {
+            document.write(`<p>${i}</p>`)
+            error('error to stop')
+          }, 1000)
+        })
+      } else {
+        task = new Factory.Task(complete => {
+          setTimeout(o => {
+            document.write(`<p>${i}</p>`)
+            complete(true)
+          }, 1000)
+        }, {
+          oncomplete(result) {
+            console.log(result)
+          },
+          onerror(e) {
+            console.log(e)
+          }
+        })
+      }
+      factory.add(task)
+    }
+
+    setTimeout(o => {
+      document.write('<p>STOP</p>')
+      factory.stop();
+    }, 3000)
+
+    setTimeout(o => {
+      document.write('<p>RUN</p>')
+      factory.run();
+    }, 6000)
+
+  </script>
+
+</body>
+
+</html>

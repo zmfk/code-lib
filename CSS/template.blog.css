@@ -1,0 +1,71 @@
+:root {
+  --color-background: #000;
+  --color-text: #fff;
+}
+/* TEMP - START */
+.main,
+.drawer,
+.aside {
+  height: 100vh;
+}
+.footer {
+  height: 12em;
+}
+.header {
+  background: #111;
+}
+.main {
+  background: #222;
+}
+.drawer {
+  background: #333;
+}
+.aside {
+  background: #444;
+}
+.footer {
+  background: #555;
+}
+/* TEMP - END */
+body {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 100%;
+}
+.app {
+  width: 100%;
+  min-width: 1024px;
+}
+.header {
+  z-index: 999999998;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: calc(0.6vmin + 3em);
+}
+.frame {
+  margin: calc(0.6vmin + 3em) auto 0;
+  max-width: 1366px;
+}
+.frame:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.drawer,
+.main,
+.aside {
+  float: left;
+}
+.drawer {
+  z-index: 999999997;
+  width: 300px;
+}
+.aside {
+  z-index: 999999997;
+  width: 300px;
+}
+.main {
+  width: calc(100% - 300px - 300px);
+}

@@ -1,7 +1,11 @@
 package Java;
 
 /**
- * @author jinyaoMa
+ * 三角形判定工具
+ * 根据三边长度判断能否构成三角形、是否为直角三角形。
+ * 基于 jinyaoMa 的代码修改,增加了边长合法性检查，使得功能更加健壮。
+ * 
+ * @author SuiMu
  */
 
 public class Triangle {
@@ -9,11 +13,11 @@ public class Triangle {
   private int sideA, sideB, sideC;
 
   /**
-   * Input 3 lines for triangle checking
+   * 输入三条边
    *
-   * @param a first line
-   * @param b second line
-   * @param c third line
+   * @param a 第一条边
+   * @param b 第二条边
+   * @param c 第三条边
    */
   public Triangle(int a, int b, int c) {
     sideA = a;
@@ -22,73 +26,79 @@ public class Triangle {
   }
 
   /**
+   * 检查三条边是否都大于0
    *
-   * @return first line
+   * @return 合法返回 true，否则 false
+   */
+  public boolean isValid() {
+    return sideA > 0 && sideB > 0 && sideC > 0;
+  }
+
+  /**
+   * 判断能否构成三角形
+   * 先检查边长合法性，若不合法返回 false
+   *
+   * @return 能构成三角形返回 true，否则 false
+   */
+  public boolean isTriangle() {
+    if (!isValid()) {
+      return false;
+    }
+    return longestSide() < (shortestSide() + mediumSide());
+  }
+
+  /**
+   * 判断是否为直角三角形
+   * 先检查边长合法性，若不合法返回 false
+   *
+   * @return 是直角三角形返回 true，否则 false
+   */
+  public boolean isRight() {
+    if (!isValid()) {
+      return false;
+    }
+    return longestSide() * longestSide() == shortestSide() * shortestSide() + mediumSide() * mediumSide();
+  }
+
+  /**
+   * @return 第一条边
    */
   public int getA() {
     return sideA;
   }
 
   /**
-   *
-   * @return second line
+   * @return 第二条边
    */
   public int getB() {
     return sideB;
   }
 
   /**
-   *
-   * @return third line
+   * @return 第三条边
    */
   public int getC() {
     return sideC;
   }
 
   /**
-   *
-   * @return the shortest line of the 3 lines
+   * @return 最短边
    */
   private int shortestSide() {
     return Math.min(Math.min(sideA, sideB), sideC);
   }
 
   /**
-   *
-   * @return the longest line of the 3 lines
+   * @return 最长边
    */
   private int longestSide() {
     return Math.max(Math.max(sideA, sideB), sideC);
   }
 
   /**
-   *
-   * @return the medium line of the 3 lines
+   * @return 中等长度边
    */
   private int mediumSide() {
     return (sideA + sideB + sideC) - shortestSide() - longestSide();
-  }
-
-  /**
-   *
-   * "2 shortest lines (summed) must be longer than the longest line" in order to
-   * form a triangle. a < (b + c) , a - the longest line
-   * 
-   * @return true/false if the 3 lines can form a triangle
-   */
-  public boolean isTriangle() {
-    return longestSide() < (shortestSide() + mediumSide());
-  }
-
-  /**
-   *
-   * The square of the longest line must equal to the sum of the square of the
-   * medium line and the square of the shortest line, in order to form a
-   * right-angle triangle. a**2 = b**2 + c**2 (a is the longest line)
-   * 
-   * @return true/false if the 3 lines can form a right-angle triangle
-   */
-  public boolean isRight() {
-    return longestSide() * longestSide() == shortestSide() * shortestSide() + mediumSide() * mediumSide();
   }
 }

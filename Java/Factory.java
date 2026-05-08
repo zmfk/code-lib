@@ -5,10 +5,12 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * Functioning like code in JavaScript/factory.js
- * Factory delivers Tasks to Workers, and tasks' results will return to main thread for other operations.
+ * 多线程任务分发器
+ * 自动将任务分配给当前任务最少的 Worker 执行。
+ * 与 JavaScript 版 Factory 功能对应。
+ * 基于 jinyaoMa 的代码修改而来，增加了 Worker 的概念，使得任务分发更加合理。
  * 
- * @author jinyaoMa
+ * @author SuiMu
  */
 
 public class Factory<T> {

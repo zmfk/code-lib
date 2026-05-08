@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jinyaoMa/code-lib.git"
+    "url": "git+https://github.com/zmfk/code-lib.git"
   },
-  "author": "jinyaoMa",
+  "author": "SuiMu",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jinyaoMa/code-lib/issues"
+    "url": "https://github.com/zmfk/code-lib/issues"
   },
-  "homepage": "https://github.com/jinyaoMa/code-lib#readme",
+  "homepage": "https://github.com/zmfk/code-lib#readme",
   "dependencies": {
     "stylus": "^0.54.7"
   }

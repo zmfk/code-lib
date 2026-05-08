@@ -1,0 +1,26 @@
+<html>
+<head>
+  <title>Ajax 测试 - 结果</title>
+</head>
+<body>
+  <h1>Ajax 请求结果</h1>
+  <textarea id="output" style="width:100%; height:80vh;" readonly>
+    加载中...
+  </textarea>
+
+  <script src="../../Web/ajax.js"></script>
+  <script>
+    ajax({
+      url: 'https://zmfk.github.io/',
+      method: 'get',
+      success(result) {
+        // 将结果放入 textarea，避免被浏览器解析执行
+        document.getElementById('output').value = result;
+      },
+      error(e) {
+        document.getElementById('output').value = '请求失败: ' + e;
+      }
+    });
+  </script>
+</body>
+</html>

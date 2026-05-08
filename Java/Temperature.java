@@ -1,7 +1,11 @@
 package Java;
 
 /**
- * @author jinyaoMa
+ * 温度单位转换工具
+ * 支持开尔文、摄氏度、华氏度、兰氏度、列氏度之间的相互转换
+ * 基于 jinyaoMa 的代码修改
+ * 
+ * @author SuiMu
  */
 
 public class Temperature {
@@ -51,19 +55,19 @@ public class Temperature {
     }
 
     public Celsius toCelsius() {
-      return new Celsius(getValue() - 273.15d); // C = K - 273.15
+      return new Celsius(getValue() - 273.15d);
     }
 
     public Fahrenheit toFahrenheit() {
-      return new Fahrenheit(getValue() * 1.8d - 459.67d); // F = K * 1.8 - 459.67
+      return new Fahrenheit(getValue() * 1.8d - 459.67d);
     }
 
     public Rankine toRankine() {
-      return new Rankine(getValue() * 1.8d); // Ra = K * 1.8
+      return new Rankine(getValue() * 1.8d);
     }
 
     public Reaumur toReaumur() {
-      return new Reaumur((getValue() - 273.15d) * 0.8d); // R = (K - 273.15) * 0.8
+      return new Reaumur((getValue() - 273.15d) * 0.8d);
     }
   }
 
@@ -74,19 +78,20 @@ public class Temperature {
     }
 
     public Kelvin toKelvin() {
-      return new Kelvin(getValue() + 273.15d); // K = C + 273.15
+      return new Kelvin(getValue() + 273.15d);
     }
 
+    // 修复：正确的摄氏度转华氏度公式
     public Fahrenheit toFahrenheit() {
-      return new Fahrenheit(getValue() + 273.15d); // K = C + 273.15
+      return new Fahrenheit(getValue() * 1.8d + 32d);
     }
 
     public Rankine toRankine() {
-      return new Rankine(getValue() * 1.8d + 32d + 459.67d); // Ra = C * 1.8 + 32 + 459.67
+      return new Rankine(getValue() * 1.8d + 32d + 459.67d);
     }
 
     public Reaumur toReaumur() {
-      return new Reaumur(getValue() * 0.8d); // R = C * 0.8
+      return new Reaumur(getValue() * 0.8d);
     }
   }
 
@@ -97,19 +102,19 @@ public class Temperature {
     }
 
     public Kelvin toKelvin() {
-      return new Kelvin((getValue() + 459.67d) / 1.8d); // K = (F + 459.67) / 1.8
+      return new Kelvin((getValue() + 459.67d) / 1.8d);
     }
 
     public Celsius toCelsius() {
-      return new Celsius((getValue() - 32d) / 1.8d); // C = (F - 32) / 1.8
+      return new Celsius((getValue() - 32d) / 1.8d);
     }
 
     public Rankine toRankine() {
-      return new Rankine(getValue() + 459.67d); // Ra = F + 459.67
+      return new Rankine(getValue() + 459.67d);
     }
 
     public Reaumur toReaumur() {
-      return new Reaumur((getValue() - 32d) / 2.25d); // R = (F - 32) / 2.25
+      return new Reaumur((getValue() - 32d) / 2.25d);
     }
   }
 
@@ -119,20 +124,21 @@ public class Temperature {
       setUnit(Unit.Rankine);
     }
 
+    // 修复：正确的兰氏度转开尔文公式
     public Kelvin toKelvin() {
-      return new Kelvin(getValue() * 1.8d); // K = Ra * 1.8
+      return new Kelvin(getValue() / 1.8d);
     }
 
     public Celsius toCelsius() {
-      return new Celsius((getValue() - 32d - 459.67d) / 1.8d); // C = (Ra - 32 - 459.67) / 1.8
+      return new Celsius((getValue() - 32d - 459.67d) / 1.8d);
     }
 
     public Fahrenheit toFahrenheit() {
-      return new Fahrenheit(getValue() - 459.67d); // F = Ra - 459.67
+      return new Fahrenheit(getValue() - 459.67d);
     }
 
     public Reaumur toReaumur() {
-      return new Reaumur((getValue() - 459.67d - 32d) / 2.25d); // R = (Ra - 459.67 - 32) / 2.25
+      return new Reaumur((getValue() - 459.67d - 32d) / 2.25d);
     }
   }
 
@@ -143,19 +149,19 @@ public class Temperature {
     }
 
     public Kelvin toKelvin() {
-      return new Kelvin(getValue() * 1.25d + 273.15d); // K = R * 1.25 + 273.15
+      return new Kelvin(getValue() * 1.25d + 273.15d);
     }
 
     public Celsius toCelsius() {
-      return new Celsius(getValue() * 1.25d); // C = R * 1.25
+      return new Celsius(getValue() * 1.25d);
     }
 
     public Fahrenheit toFahrenheit() {
-      return new Fahrenheit(getValue() * 2.25d + 32d); // F = R * 2.25 + 32
+      return new Fahrenheit(getValue() * 2.25d + 32d);
     }
 
     public Rankine toRankine() {
-      return new Rankine(getValue() * 2.25d + 32d + 459.67d); // Ra = R * 2.25 + 32 + 459.67
+      return new Rankine(getValue() * 2.25d + 32d + 459.67d);
     }
   }
 }

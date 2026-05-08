@@ -1,6 +1,8 @@
 package Java;
 
 /**
+ * 地球距离计算工具
+ * 根据两地的经纬度坐标，计算球面距离（单位：公里）
  * 
  * Examples:
  * A => new Location(49.0002, 51.1000)
@@ -8,7 +10,9 @@ package Java;
  * B => new Location(50.0002, 50.1000)
  * Earth.getDistance(A, B)
  * 
- * @author jinyaoMa
+ * 基于 jinyaoMa 的代码修改
+ * 
+ * @author SuiMu
  */
 
 public class Earth {
@@ -69,7 +73,7 @@ public class Earth {
 
       @Override
       public String toString() {
-        return String.format("%d°%d\'%d\"", degree, minute, second);
+        return String.format("%d°%d'%.2f\"", degree, minute, second);
       }
     }
 

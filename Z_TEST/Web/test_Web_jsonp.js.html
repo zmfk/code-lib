@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>测试 jsonp.js - 一言</title>
+  <style>
+    #result pre {
+      white-space: pre-wrap;       /* 保留空格和换行，同时允许自动换行 */
+      word-wrap: break-word;       /* 长单词或URL也能自动断行 */
+      background: #f4f4f4;
+      padding: 1em;
+      border-radius: 6px;
+      overflow-x: auto;           /* 万一超宽，出现滚动条做兜底 */
+    }
+  </style>
+</head>
+<body>
+  <h1>JSONP 测试 - 一言</h1>
+  <div id="result">加载中...</div>
+
+  <script src="../../Web/jsonp.js"></script>
+  <script>
+    var callbackName = 'hitokotoCallback_' + Date.now();
+    window[callbackName] = function(data) {};
+
+    jsonp(
+      'https://v1.hitokoto.cn',
+      { callback: callbackName },
+      function(result) {
+        if (result && !(result instanceof Event)) {
+          document.getElementById('result').innerHTML = 
+            '<pre>' + JSON.stringify(result, null, 2) + '</pre>';
+          console.log('请求成功:', result);
+        } else {
+          document.getElementById('result').innerHTML = '请求失败或超时';
+          console.warn('请求失败或超时');
+        }
+      },
+      false,
+      5000
+    );
+  </script>
+</body>
+</html>

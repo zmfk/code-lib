@@ -1,4 +1,12 @@
-# [VERSION: 20200623.1144](//github.com/jinyaoMa/code-lib)
+# [VERSION: 20260507.2128](https://github.com/zmfk/code-lib)
+
+## Update 2026-05-07
+1. 全面修改代码库，修正原作者署名和维护者信息
+2. 修复 Factory.java、Temperature.java、Earth.java 等文件中的逻辑错误
+3. 优化 PhoneExtracter.py，支持中国号码格式、特服号码、400热线等
+4. 完善 VCodeGenerator.py，添加跨平台字体检测、倾斜效果、可调垂直偏移
+5. 整理博客模板 CSS/HTML，修复 Stylus 编译问题
+6. 更新 Ajax.java、Count.java、Triangle.java 等工具类的注释和功能
 
 ## Update 2020-06-23
 1. Add HTML/netease.hotlist.tpl.html
@@ -45,4 +53,4 @@
 
 ## Update 2020-04-02
 1. repo/code-lib created
-2. "Code Library" page added to [my blog](//ma-jinyao.cn)
+2. "Code Library" page added to [my blog](https://ma-jinyao.cn)

@@ -10,9 +10,18 @@ import java.net.URL;
 import java.util.HashMap;
 
 /**
- * Asynchronous Java And XML
+ * 纯 Java 实现的 HTTP 异步请求工具（Ajax）
+ *
+ * 功能：封装了 java.net.HttpURLConnection，用于发送 HTTP 请求
+ * 支持 GET/POST 方法、自定义请求头、超时控制、成功/失败回调
+ *
+ * 使用方式：
+ * 1. 实现 Ajax.Options 接口，指定 url、method、headers、data、timeout、success、error
+ * 2. 调用 Ajax.run(options) 发起请求
+ * 3. 请求完成后自动调用 success 或 error 回调
+ * 基于 jinyaoMa 的代码修改
  * 
- * @author jinyaoMa
+ * @author SuiMu
  */
 
 public class Ajax {
