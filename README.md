@@ -1,11 +1,4 @@
-# [VERSION: 20260917.1505](https://github.com/zmfk/vuepress-theme-mustom)
-
-## Update 2026-09-17
-1. 用 FeedPulse 替换已失效的 Clustrmaps 访客统计组件
-2. 新增 components/parts/FeedPulse.vue，支持从 config.js 读取参数
-3. 修改 Aside.vue，移除 Clustrmaps 并引入 FeedPulse
-4. 更新 docs/.vuepress/config.js，新增 feedpulse 配置项，移除 clustrmaps
-5. 为 FeedPulse 添加 CSS 兜底，禁止内部动画，彻底消除闪烁
+# [VERSION: 20260507.2128](https://github.com/zmfk/code-lib)
 
 ## Update 2026-05-07
 1. 全面修改代码库，修正原作者署名和维护者信息
